@@ -1,0 +1,4 @@
+host: !secret ZM_HOST
+path: !secret ZM_PATH
+username: !secret zoneminderusername
+password: !secret zoneminderpassword

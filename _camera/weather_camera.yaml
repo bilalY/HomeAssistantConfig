@@ -1,0 +1,15 @@
+- platform: generic
+  still_image_url: http://api.sat24.com/crop?type=rainTMC&lat=51.5074&lon=-0.1278&width=300&height=300&zoom=1.50&continent=eu  
+  name: UK Rain
+
+- platform: generic
+  still_image_url: http://api.sat24.com/crop?type=visual5hdcomplete&lat=51.5074&lon=-0.1278&width=300&height=300&zoom=1.50&continent=eu  
+  name: UK Sun and Clouds
+
+- platform: generic
+  still_image_url: http://api.sat24.com/crop?type=snow&lat=51.5074&lon=-0.1278&width=300&height=300&zoom=1.50&continent=eu  
+  name: UK Snow
+
+- platform: generic
+  still_image_url: http://api.sat24.com/crop?type=infraPolair&lat=51.5074&lon=-0.1278&width=300&height=300&zoom=1.50&continent=eu  
+  name: UK Infrared

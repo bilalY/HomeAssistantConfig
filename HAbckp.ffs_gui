@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FreeFileSync XmlFormat="6" XmlType="GUI">
+    <MainConfig>
+        <Comparison>
+            <Variant>Content</Variant>
+            <Symlinks>Exclude</Symlinks>
+            <IgnoreTimeShift/>
+        </Comparison>
+        <SyncConfig>
+            <Variant>Mirror</Variant>
+            <CustomDirections>
+                <LeftOnly>right</LeftOnly>
+                <RightOnly>left</RightOnly>
+                <LeftNewer>right</LeftNewer>
+                <RightNewer>left</RightNewer>
+                <Different>none</Different>
+                <Conflict>none</Conflict>
+            </CustomDirections>
+            <DetectMovedFiles>false</DetectMovedFiles>
+            <DeletionPolicy>RecycleBin</DeletionPolicy>
+            <VersioningFolder Style="Replace"/>
+        </SyncConfig>
+        <GlobalFilter>
+            <Include>
+                <Item>*</Item>
+            </Include>
+            <Exclude>
+                <Item>\System Volume Information\</Item>
+                <Item>\$Recycle.Bin\</Item>
+                <Item>\RECYCLER\</Item>
+                <Item>\RECYCLED\</Item>
+                <Item>*\desktop.ini</Item>
+                <Item>*\thumbs.db</Item>
+                <Item>\.HA_VERSION</Item>
+                <Item>\.uuid</Item>
+                <Item>\home-assistant.log</Item>
+                <Item>\home-assistant_v2.db</Item>
+                <Item>\deps\</Item>
+                <Item>\tts\</Item>
+                <Item>\config\</Item>
+                <Item>*\!_!_!__archive\</Item>
+            </Exclude>
+            <TimeSpan Type="None">0</TimeSpan>
+            <SizeMin Unit="None">0</SizeMin>
+            <SizeMax Unit="None">0</SizeMax>
+        </GlobalFilter>
+        <FolderPairs>
+            <Pair>
+                <Left>I:\</Left>
+                <Right>F:\Dev\HA</Right>
+            </Pair>
+        </FolderPairs>
+        <OnCompletion/>
+    </MainConfig>
+    <GuiConfig>
+        <HandleError>Popup</HandleError>
+        <MiddleGridView>Category</MiddleGridView>
+    </GuiConfig>
+</FreeFileSync>

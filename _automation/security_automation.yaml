@@ -1,0 +1,29 @@
+- alias: 'AC 01 Motion Detected'
+  trigger:
+    platform: state
+    entity_id: sensor.cam_01_motion_detected
+    state: 'True'
+  action:
+    service: ifttt.trigger
+    data:
+      event: SaturnPi_HA_notify_alarm
+      value1: 'Motion Detected'
+      value2: 'Living Room Cam'
+
+- alias: 'Alarm System Activatation'
+  trigger:
+    platform: zone
+    entity_id: device_tracker.saturnmqtt_neptunen4
+    zone: zone.home
+    event: leave
+  action:
+    - service: script.alarm_system_on
+
+- alias: 'Alarm System Deactivation'
+  trigger:
+    platform: zone
+    entity_id: device_tracker.saturnmqtt_neptunen4
+    zone: zone.home
+    event: enter
+  action:
+    - service: script.alarm_system_off 

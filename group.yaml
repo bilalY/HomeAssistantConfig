@@ -1,0 +1,246 @@
+###VIEWS
+# default_view:
+#   icon: mdi:home
+#   view: yes
+#   name: Home
+#   entities:
+#     - group.environment
+
+environment_view:
+  icon: mdi:weather-sunny
+  view: yes
+  name: Environment
+  entities:
+    - group.environment
+    - group.weathermaps
+    - group.iss
+
+bilal_view:
+  icon: mdi:human-handsup
+  view: yes
+  name: Bilal
+  entities:
+    - group.bilal
+    - group.desktop_pc
+    - group.emailbreachalert
+    - group.alarm_clock
+
+livingroom_view:
+  icon: mdi:sofa
+  view: yes
+  name: Livingroom
+  entities:
+    - media_player.neptuneshieldtv
+    - camera.cam_01
+
+# kitchen_view:
+#   icon: mdi:fridge
+#   view: yes
+#   name: Kitchen
+#   entities:   
+
+# office_view:
+#   icon: mdi:book-open-page-variant
+#   view: yes
+#   name: Office
+#   entities:
+
+security_view:
+  icon: mdi:security-home
+  view: yes
+  name: Security
+  entities:
+    - group.alarmsystem
+    - group.zoneminderbox
+    - group.livingroomsecuritycameras
+
+stats_view:
+  icon: mdi:scale-balance
+  view: yes
+  name: STATS
+  entities:
+    - group.saturnpi_stats
+    - group.speedtest
+    - group.pihole_stats
+
+admin_view:
+  icon: mdi:professional-hexagon
+  view: yes
+  name: 'Admin Settings'
+  entities:
+    - group.automations
+    - group.scripts
+    - group.switches
+
+###GROUPS
+environment:
+  name: Environment
+  entities:
+    - sensor.temperature_mean
+    - sensor.precipitation_intensity_mean
+    - sensor.cloud_cover_mean
+    - sun.sun
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_minutely_summary
+    - sensor.dark_sky_hourly_summary
+    - sensor.dark_sky_daily_summary
+    - sensor.dark_sky_nearest_storm_distance
+    - sensor.dark_sky_nearest_storm_bearing
+    - sensor.dark_sky_precip
+    - sensor.dark_sky_precip_intensity
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_daily_max_precip_intensity
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_apparent_temperature
+    - sensor.dark_sky_daily_high_temperature
+    - sensor.dark_sky_daily_low_temperature
+    - sensor.dark_sky_daily_high_apparent_temperature
+    - sensor.dark_sky_daily_low_apparent_temperature
+    - sensor.dark_sky_dew_point
+    - sensor.dark_sky_wind_speed
+    - sensor.dark_sky_wind_bearing
+    - sensor.dark_sky_cloud_coverage
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_pressure
+    - sensor.dark_sky_visibility
+    - sensor.dark_sky_ozone
+    
+iss:
+  name: 'International Space Station'
+  entities:
+    - sensor.iss_next_rise
+    - camera.iss
+    - binary_sensor.iss
+
+speedtest:
+  name: SpeedTest
+  entities:
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.speedtest_ping
+
+bilal:
+  name: Bilal
+  control: hidden
+  entities:
+    - device_tracker.saturnmqtt_neptunen4
+    - sensor.bilals_phone_battery
+    - device_tracker.saturnmqtt_neptuneshieldtablet
+    - sensor.bilals_tablet_battery
+    - sensor.bilal_to_home
+    - camera.bilal
+
+desktop_pc:
+  name: 'Desktop PC'
+  control: hidden
+  entities:
+    - switch.z800_wol
+    - input_select.pcoptions
+
+emailbreachalert:
+  name: 'Email Breach Alert'
+  control: hidden
+  entities:
+    - sensor.breaches_bilalyassinegmailcom
+    - sensor.breaches_b89yassinegmailcom
+    - sensor.breaches_bilalyassine14uclacuk
+
+saturnpi_stats:
+  name: 'SaturnPi STATS'
+  entities:
+    - sensor.sent_wlan0
+    - sensor.received_wlan0
+    - sensor.ram_free
+    - sensor.ipv4_address_wlan0
+    - sensor.disk_use_home
+    - sensor.cpu_use
+    - sensor.ssl_cert_expiry
+    
+pihole_stats:
+  name: 'Pi-Hole STATS'
+  entities:
+    - sensor.pihole_ads_blocked_today
+    - sensor.pihole_ads_percentage_blocked_today
+    - sensor.pihole_dns_queries_today
+    - sensor.pihole_mean
+
+automations:
+  name: Automations
+  entities:
+    - automation.tesco_shopping_list
+    - automation.welcome_to_work
+    - automation.home_assistant_update_notifications
+    - automation.z800_sleep
+    - automation.z800_shutdown
+    - automation.z800_restart
+    - automation.z800_hibernate
+    - automation.router_update_available_notification
+    - automation.cam_01_motion_detected
+    - automation.alarm_system_activatation
+    - automation.alarm_system_deactivation
+    - automation.zm_sleep
+    - automation.zm_shutdown
+    - automation.zm_restart
+    - automation.zm_hibernate
+    - automation.hue_light_on_gradually_with_alarm
+
+scripts:
+  name: Scripts
+  control: hidden
+  entities:
+    - script.alarm_system_off
+    - script.alarm_system_on
+    - script.goodmorning
+    - script.goodnight
+    - script.wake_up
+
+switches:
+  name: 'Switches'
+  entities:
+    - switch.cam_01_motion
+    - switch.livingroom_state  
+
+weathermaps:
+  name: 'Weather Maps'
+  entities:
+    - camera.uk_rain
+    - camera.uk_sun_and_clouds
+    - camera.uk_infrared
+    - camera.uk_snow 
+
+alarmsystem:
+  name: 'Alarm System: MAIN CONTROLS'
+  control: hidden
+  entities:
+    - device_tracker.zoneminder
+    - script.alarm_system_on
+    - script.alarm_system_off
+
+zoneminderbox:
+  name: 'ZoneMinder System Status'
+  control: hidden
+  entities:
+    - switch.zoneminder_wol
+    - input_select.zmoptions
+
+livingroomsecuritycameras:
+  name: 'Living Room Security Camera'
+  control: hidden
+  entities:
+    - switch.cam_01_motion
+    - camera.livingroom
+    - sensor.cam_01_motion_detected
+    - sensor.cam_01_sd_used
+    - sensor.cam_01_ptz_preset
+    - switch.livingroom_state 
+    - sensor.livingroom_events
+    - sensor.livingroom_status    
+
+# Alarm clock
+alarm_clock:
+  name: 'Alarm Clock'
+  entities:
+    - sensor.alarm_clock_time
+    - input_slider.alarm_clock_hour
+    - input_slider.alarm_clock_minute
+    - input_boolean.alarm_clock_status 

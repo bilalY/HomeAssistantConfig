@@ -1,0 +1,38 @@
+- platform: statistics
+  entity_id: sensor.pihole
+  name: PiHole
+
+- platform: pi_hole
+  host: !secret pihole_ip
+
+- platform: speedtest
+  name: 'Internet Speed Test'
+  minute: 30
+  hour:
+    - 0
+    - 6
+    - 12
+    - 18
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: memory_free
+    - type: processor_use
+    - type: network_in
+      arg: wlan0
+    - type: network_out
+      arg: wlan0
+    - type: ipv4_address
+      arg: wlan0
+
+- platform: command_line
+  name: 'SSL Cert Expiry'
+  unit_of_measurement: days
+  scan_interval: 86400
+  command: !secret ssl_check

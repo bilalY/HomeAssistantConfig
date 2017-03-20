@@ -1,0 +1,50 @@
+- alias: 'Z800 Restart'
+  trigger:
+    platform: state
+    entity_id: input_select.pcoptions
+    to: "Restart"
+  action:
+    - service: ifttt.trigger
+      data:
+        event: SaturnPi_HA_notify
+        value1: 'Z800 Restart'
+    - service: shell_command.restart_z800
+    
+
+- alias: 'Z800 Shutdown'
+  trigger:
+    platform: state
+    entity_id: input_select.pcoptions
+    to: "Shutdown"
+  action:
+    - service: ifttt.trigger
+      data:
+        event: SaturnPi_HA_notify
+        value1: 'Z800 Shutdown'
+    - service: shell_command.shutdown_z800
+
+
+- alias: 'Z800 Sleep'
+  trigger:
+    platform: state
+    entity_id: input_select.pcoptions
+    to: "Sleep"
+  action:
+    - service: ifttt.trigger
+      data:
+        event: SaturnPi_HA_notify
+        value1: 'Z800 Sleep'
+    - service: shell_command.sleep_z800
+
+
+- alias: 'Z800 Hibernate'
+  trigger:
+    platform: state
+    entity_id: input_select.pcoptions
+    to: "Hibernate"
+  action:
+    - service: ifttt.trigger
+      data:
+        event: SaturnPi_HA_notify
+        value1: 'Z800 Hibernate' 
+    - service: shell_command.hibernate_z800  

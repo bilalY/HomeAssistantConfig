@@ -1,0 +1,4 @@
+- name: telegramchat
+  platform: telegram
+  api_key: !secret telegram_api
+  chat_id: !secret bilalgroup_telegram_chat_id

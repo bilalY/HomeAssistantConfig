@@ -1,0 +1,13 @@
+- platform: owntracks
+  max_gps_accuracy: 300
+  waypoints: True  
+  
+- platform: asuswrt
+  host: 192.168.0.1
+  username: admin
+  password: !secret router_password
+  protocol: ssh
+  mode: router
+  interval_seconds: 10
+  consider_home: 50
+  track_new_devices: yes

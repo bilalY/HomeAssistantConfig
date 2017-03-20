@@ -1,0 +1,12 @@
+# - platform: amcrest
+#   host: !secret cam01_ip
+#   username: !secret amcrest_username
+#   password: !secret amcrest_password
+#   name: Cam_01  
+#   resolution: low
+
+- platform: zoneminder
+
+ # - platform: mjpeg
+ #   mjpeg_url: !secret mjpeg_url_cam01
+ #   name: My Camera Name

@@ -1,0 +1,50 @@
+- alias: 'ZM Restart'
+  trigger:
+    platform: state
+    entity_id: input_select.zmoptions
+    to: "Restart"
+  action:
+    - service: ifttt.trigger
+      data:
+        event: SaturnPi_HA_notify
+        value1: 'ZoneMinder Restart'
+    - service: shell_command.restart_zm
+    
+
+- alias: 'ZM Shutdown'
+  trigger:
+    platform: state
+    entity_id: input_select.zmoptions
+    to: "Shutdown"
+  action:
+    - service: ifttt.trigger
+      data:
+        event: SaturnPi_HA_notify
+        value1: 'ZoneMinder Shutdown'
+    - service: shell_command.shutdown_zm
+
+
+- alias: 'ZM Sleep'
+  trigger:
+    platform: state
+    entity_id: input_select.zmoptions
+    to: "Sleep"
+  action:
+    - service: ifttt.trigger
+      data:
+        event: SaturnPi_HA_notify
+        value1: 'ZoneMinder Sleep'
+    - service: shell_command.sleep_zm
+
+
+- alias: 'ZM Hibernate'
+  trigger:
+    platform: state
+    entity_id: input_select.zmoptions
+    to: "Hibernate"
+  action:
+    - service: ifttt.trigger
+      data:
+        event: SaturnPi_HA_notify
+        value1: 'ZoneMinder Hibernate' 
+    - service: shell_command.hibernate_zm

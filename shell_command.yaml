@@ -1,0 +1,11 @@
+shutdown_z800: !secret shutdown_z800
+restart_z800: !secret restart_z800
+sleep_z800: !secret sleep_z800 
+hibernate_z800: !secret hibernate_z800
+
+shutdown_zm: !secret shutdown_zm
+# restart_z800: !secret restart_z800
+# sleep_z800: !secret sleep_z800 
+# hibernate_z800: !secret hibernate_z800
+cam_01_turn_off: !secret cam_01_turn_off_command
+cam_01_turn_on: !secret cam_01_turn_on_command

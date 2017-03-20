@@ -1,0 +1,12 @@
+- platform: amcrest
+  host: !secret cam_01_ip
+  username: !secret amcrest_username
+  password: !secret amcrest_password 
+  name: Cam_01
+  monitored_conditions:
+    - motion_detector
+    - sdcard
+    - ptz_preset
+
+- platform: zoneminder
+  include_archived: false

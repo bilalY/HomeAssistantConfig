@@ -1,0 +1,22 @@
+- platform: wake_on_lan
+  mac_address: !secret Z800_MAC
+  name: Z800 WOL
+  host: !secret Z800_IP
+
+- platform: wake_on_lan
+  mac_address: !secret zonminder_MAC
+  name: ZoneMinder WOL
+  host: !secret zoneminder_IP
+
+
+- platform: command_line
+  switches:
+    cam_01_motion:
+      command_on: !secret cam_01_motion_command_on
+      command_off: !secret cam_01_motion_command_off
+      command_state: !secret cam_01_motion_command_state
+      value_template: '{{ value == "true" }}' 
+
+- platform: zoneminder
+  command_on: Modect
+  command_off: Monitor

@@ -1,0 +1,82 @@
+# Only the 'entity_id' is required.  All other options are optional.
+switch.z800_wol:
+  icon: mdi:desktop-tower
+switch.zoneminder_wol:
+  icon: mdi:desktop-tower
+
+
+binary_sensor.iss:
+  icon: mdi:satellite-variant
+sensor.battery_neptunen4:
+  icon: mdi:battery
+sensor.battery_neptuneshieldtablet:
+  icon: mdi:battery
+sensor.bilals_phone_battery:
+  icon: mdi:battery-unknown
+sensor.bilals_tablet_battery:
+  icon: mdi:battery-unknown
+sensor.bilal_to_home:
+  icon: mdi:map-marker
+
+sensor.breaches_bilalyassinegmailcom:
+  icon: mdi:email-secure 
+sensor.breaches_b89yassinegmailcom:
+  icon: mdi:email-secure 
+sensor.breaches_bilalyassine14uclacuk:
+  icon: mdi:email-secure  
+  
+sensor.iss_next_rise:
+  icon: mdi:binoculars
+
+# script.alarm_system_off:
+#   icon: mdi:octagon
+# script.alarm_system_on:
+#   icon: mdi:octagon-outline
+switch.cam_01_motion:
+  friendly_name: 'AC 01 Motion Detection Switch'
+sensor.cam_01_motion_detected:
+  friendly_name: 'AC 01 Motion Detected'
+sensor.cam_01_sd_used:
+  friendly_name: 'AC 01 Storage Used'
+sensor.cam_01_ptz_preset:
+  friendly_name: 'AC 01 Position Preset'
+switch.livingroom_state:
+  friendly_name: 'ZM Livingroom Motion Detection Switch'
+sensor.livingroom_events:
+  friendly_name: 'ZM Livingroom Events'
+sensor.livingroom_status:
+  friendly_name: 'ZM Livingroom Status'
+
+sensor.next_visible:
+  icon: mdi:satellite-variant
+
+# script.alarm_system_on:
+#   # icon: mdi:
+#   can_cancel: false
+# script.alarm_system_off:
+#   # icon: mdi:
+#   can_cancel: false
+
+
+# Alarm clock sensors
+sensor.time:
+  hidden: true
+sensor.alarm_clock_hour:
+  hidden: true
+sensor.alarm_clock_minute:
+  hidden: true
+sensor.alarm_clock_time_long:
+  hidden: true
+sensor.alarm_clock_time:
+  friendly_name: 'Alarm Clock Setting'
+  icon: mdi:alarm
+# Alarm clock inputs
+input_slider.alarm_clock_hour:
+  friendly_name: 'Hour'
+  icon: mdi:timer
+input_slider.alarm_clock_minute:
+  friendly_name: 'Minute'
+  icon: mdi:timer
+input_boolean.alarm_clock_status:
+  friendly_name: 'Alarm Clock Status'
+  icon: mdi:alarm-check

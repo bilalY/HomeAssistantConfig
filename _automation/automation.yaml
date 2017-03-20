@@ -1,0 +1,55 @@
+# !include security_automation.yaml
+# !include Z800_automation.yaml
+# !include updates_automation.yaml
+
+- alias: 'Tesco Shopping List'
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.saturnmqtt_neptunen4
+      zone: zone.tesco_supermarket
+      event: enter
+  action:
+    service: ifttt.trigger
+    data:
+      event: SaturnPi_HA_notify
+      value1: 'Check Shopping List!' 
+
+
+- alias: 'Welcome to Work'
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.saturnmqtt_neptunen4
+      zone: zone.work
+      event: enter
+  action:
+    service: ifttt.trigger
+    data:
+      event: SaturnPi_HA_notify
+      value1: 'Welcome to UCL!'
+
+# - alias: 'Rainy Day'
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.precip_intensity
+#       state: 'rain'
+#     # - platform: time
+#     #   after: '07:00'
+#     #   before: '20:00'
+#   action:
+#     service: ifttt.trigger
+#     data:
+#       event: HA_rain
+#       value1: 'Rain Warning'  
+
+# - alias: 'Hue light on gradually with alarm'
+#   hide_entity: False
+#   trigger:
+#     platform: template
+#     value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state }}'
+#   condition:
+#     condition: state
+#     entity_id: input_boolean.alarm_clock_status
+#     state: 'on'
+#   action:
+#     service: script.wake_up
+     

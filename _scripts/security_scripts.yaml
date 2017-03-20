@@ -1,0 +1,34 @@
+alarm_system_off:
+  alias: 'Alarm System Off'
+  sequence:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.cam_01_motion
+  - service: switch.turn_off
+    data:
+      entity_id: switch.livingroom_state
+  - delay:
+      seconds: 10
+  - service: shell_command.cam_01_turn_off
+  - service: ifttt.trigger
+    data:
+      event: SaturnPi_HA_notify
+      value1: 'Alarm System Deactivated'  
+  
+
+alarm_system_on:
+  alias: 'Alarm System On'
+  sequence:
+  - service: shell_command.cam_01_turn_on
+  - delay:
+      seconds: 10
+  - service: switch.turn_on
+    data:
+      entity_id: switch.cam_01_motion
+  - service: switch.turn_on
+    data:
+      entity_id: switch.livingroom_state
+  - service: ifttt.trigger
+    data:
+      event: SaturnPi_HA_notify
+      value1: 'Alarm System Activated'

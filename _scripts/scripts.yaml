@@ -1,0 +1,29 @@
+# !include security_scripts.yaml
+
+
+goodnight:
+  alias: 'Good Night Script'
+  sequence: 
+  - service: shell_command.shutdown_z800
+  - service: script.alarm_system_on
+
+goodmorning:
+  alias: 'Good Morning Script'
+  sequence:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.z800_wol  
+  - service: script.alarm_system_off
+
+
+
+wake_up:
+  alias: 'Wake Up Alarm'
+  sequence:
+  - service: light.turn_on
+    data: 
+      entity_id: light.lux_lamp
+      brightness: 255
+      transition: 10
+  - service: homeassistant.turn_off
+    entity_id: switch.smart_switch1

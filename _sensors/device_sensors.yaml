@@ -1,0 +1,26 @@
+- platform: mqtt
+  state_topic: "owntracks/SaturnMQTT/NeptuneN4"
+  name: 'Bilals Phone Battery'
+  icon: mdi:battery-unknown
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.batt }}'
+
+- platform: mqtt
+  state_topic: "owntracks/SaturnMQTT/NeptuneShieldTablet"
+  name: 'Bilals Tablet Battery'
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.batt }}'
+
+- platform: google_travel_time
+  api_key: !secret google_travel_time_apikey
+  name: 'Bilal to Home'
+  origin: device_tracker.saturnmqtt_neptunen4
+  destination: zone.home
+  options:
+    units: metric  
+
+- platform: haveibeenpwned
+  email: 
+    - !secret bilal_email1
+    - !secret bilal_email2
+    - !secret bilal_email3  

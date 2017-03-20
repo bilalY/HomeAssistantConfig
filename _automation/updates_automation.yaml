@@ -1,0 +1,9 @@
+- alias: 'Home Assistant Update Notifications'
+  trigger:
+    - platform: state
+      entity_id: updater.updater
+  action:
+    service: ifttt.trigger
+    data:
+      event: SaturnPi_HA_notify
+      value1: 'There is a new Home Assistant release available.'

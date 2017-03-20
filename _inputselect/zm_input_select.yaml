@@ -1,0 +1,10 @@
+zmoptions:
+  name: ZM Power Options
+  options:
+    - Restart
+    - Shutdown
+    - None
+    - Sleep
+    - Hibernate
+  initial: None
+  icon: mdi:desktop-tower

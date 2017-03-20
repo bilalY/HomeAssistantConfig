@@ -1,0 +1,10 @@
+zoneminder_off_warning:
+  name: 'Warning!!.. ZoneMinder is OFF!!!'
+  entity_id: switch.zoneminder_wol
+  state: 'off'
+  repeat: 1
+  can_acknowledge: False
+  skip_first: True
+  notifiers:
+    - telegramchat
+

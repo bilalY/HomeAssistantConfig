@@ -1,0 +1,145 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Buckingham Yard
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/London
+
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret api_password
+  # Uncomment this if you are using SSL or running in Docker etc
+  base_url: !secret base_url_to_HA
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Text to speech
+tts:
+  platform: google
+
+##ZONES####################################
+zone 1:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 40
+  icon: mdi:home
+
+zone 2:
+  name: Work
+  latitude: !secret work_latitude
+  longitude: !secret work_longitude
+  radius: 280
+  icon: mdi:school
+
+zone 3:
+  name: 'Tesco Supermarket'
+  latitude: !secret supermarket_latitude
+  longitude: !secret supermarket_longitude
+  radius: 280
+  icon: mdi:shopping
+
+zone 4:
+  name: 'Oxford Home'
+  latitude: !secret oxford_home_latitude
+  longitude: !secret oxford_home_longitude
+  radius: 40
+  icon: mdi:home
+
+##MEDIA PLAYERS#############################
+media_player:
+  - platform: cast
+    host: NvidiaShieldTV
+    name: NvidiaShieldTV
+
+##MQTT######################################
+mqtt: !include mqtt.yaml
+
+##DEVICE TRACKING###########################
+device_tracker: !include device_tracker.yaml
+
+##SENSORS##################################
+sensor: !include_dir_merge_list _sensors
+
+##SWITCHES##################################
+switch: !include switch.yaml
+
+##CAMERAS###################################
+camera: !include_dir_merge_list _camera
+
+##BINARY SENSORS############################
+binary_sensor: !include binary_sensor.yaml
+
+##HDMI######################################
+# echo scan | cec-client -s -d 1
+# hdmi_cec: !include hdmi_cec.yaml
+
+##IFTT######################################
+ifttt: !include ifttt.yaml  
+
+##INPUT SELECT##############################
+# Define our dropdown list
+input_select: !include_dir_merge_named _inputselect
+
+##SCRIPTS###################################
+script: !include_dir_merge_named _scripts
+
+##SHELL COMMAND#############################
+shell_command: !include shell_command.yaml
+
+##AUTOMATIONS###############################
+automation: !include_dir_merge_list _automation
+
+##GROUPS AND VIEWS##########################
+group: !include group.yaml
+
+
+##NOTIFICTATION#############################
+
+input_slider: !include input_slider.yaml
+
+input_boolean: !include input_boolean.yaml
+
+zoneminder: !include zoneminder.yaml
+
+alert: !include_dir_merge_named _alert
+
+notify: !include_dir_merge_list _notify
+
+
+
